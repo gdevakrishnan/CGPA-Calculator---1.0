@@ -65,10 +65,18 @@ label {
   justify-content: space-between;
 }
 
-.form-group .form input {
+.form-group .form input,
+.form-group .form select {
   outline: none;
   width: 70%;
   padding: 2px 5px;
+  outline: 1px solid transparent;
+  outline-offset: 1.5px;
+}
+
+.form-group .form input:focus,
+.form-group .form select:focus {
+  outline-color: #333533;
 }
 
 .controls {

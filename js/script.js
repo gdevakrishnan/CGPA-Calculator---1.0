@@ -1,5 +1,21 @@
 let display = document.querySelector(".display");
 
+function getGradePoints(grade) {
+    if (grade == "O") {
+        return 10;
+    }   else if (grade == "A+") {
+        return 9;
+    }   else if (grade == "A") {
+        return 8;
+    }   else if (grade == "B+") {
+        return 7;
+    }   else if (grade == "B") {
+        return 6;
+    }   else if (grade == "C") {
+        return 5;
+    }
+}
+
 function myFunction() {
     let credit1 = document.querySelector("#credit1");
     let grade1 = document.querySelector("#grade1");
@@ -13,10 +29,6 @@ function myFunction() {
     let grade5 = document.querySelector("#grade5");
     let credit6 = document.querySelector("#credit6");
     let grade6 = document.querySelector("#grade6");
-    let credit7 = document.querySelector("#credit7");
-    let grade7 = document.querySelector("#grade7");
-    let credit8 = document.querySelector("#credit8");
-    let grade8 = document.querySelector("#grade8");
     
     credit1 = Number(credit1.value);
     credit2 = Number(credit2.value);
@@ -24,25 +36,21 @@ function myFunction() {
     credit4 = Number(credit4.value);
     credit5 = Number(credit5.value);
     credit6 = Number(credit6.value);
-    credit7 = Number(credit7.value);
-    credit8 = Number(credit8.value);
-    let total_credit = credit1 + credit2 + credit3 + credit4 + credit5 + credit6 + credit7 + credit8;
 
-    grade1 = Number((grade1).value);
-    grade2 = Number((grade2).value);
-    grade3 = Number((grade3).value);
-    grade4 = Number((grade4).value);
-    grade5 = Number((grade5).value);
-    grade6 = Number((grade6).value);
-    grade7 = Number((grade7).value);
-    grade8 = Number((grade8).value);
+    let total_credit = credit1 + credit2 + credit3 + credit4 + credit5 + credit6;
 
+    grade1 = (grade1).value;
+    grade2 = (grade2).value;
+    grade3 = (grade3).value;
+    grade4 = (grade4).value;
+    grade5 = (grade5).value;
+    grade6 = (grade6).value;
 
-    let total_credits = (credit1 * grade1) + (credit2 * grade2) + (credit3 * grade3) + (credit4 * grade4) + (credit5 * grade5) + (credit6 * grade6) + (credit7 * grade7) + (credit8 * grade8);
+    let total_credits = (credit1 * getGradePoints(grade1)) + (credit2 * getGradePoints(grade2)) + (credit3 * getGradePoints(grade3)) + (credit4 * getGradePoints(grade4)) + (credit5 * getGradePoints(grade5)) + (credit6 * getGradePoints(grade6));
 
-    let CGPA = (total_credits / total_credit).toFixed(2);
+    let GPA = (total_credits / total_credit).toFixed(2);
 
-    display.innerHTML="Your total Credit Point is: " + total_credit + "<br>Your CGPA is: " + CGPA;
+    display.innerHTML="Your total Credit Point is: " + total_credit + "<br>Your GPA is: " + GPA;
 }
 
 function reset() {
@@ -58,10 +66,6 @@ function reset() {
     grade5.value="";
     credit6.value="";
     grade6.value="";
-    credit7.value="";
-    grade7.value="";
-    credit8.value="";
-    grade8.value="";
 
     display.innerHTML="¯\\_(ツ)_/¯"
 }
